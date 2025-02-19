@@ -1,0 +1,12 @@
+{
+  "name": "nikhil-goswami-array-hof-utils",
+  "version": "1.0.1",
+  "description": "This package extends the JavaScript Array prototype with 10 useful higher-order functions (HOFs), providing powerful utilities for common operations like sum, unique values, flattening, grouping, and more.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikhil-Goswami",
+  "license": "ISC"
+}
