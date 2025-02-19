@@ -1,0 +1,12 @@
+{
+  "name": "@nikhil_goswami/custom_search",
+  "version": "1.0.2",
+  "description": "It helps to apply binary search algorithm on a sorted array to find the target element",
+  "main": "binary_search.js",
+  "scripts": {
+    "start": "node binary_search.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikhil_Goswami",
+  "license": "ISC"
+}
