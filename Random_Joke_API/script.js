@@ -58,8 +58,24 @@ const jokes = [
   
 
 server.get("/jokes", (req, res) => {
-    res.json(jokes);
-    console.log(req.query);
+    
+    let id = req.query.id;
+    
+    if(id)
+    {
+        const joke = jokes.find((j) => {
+            
+            if(j.id === Number(id))
+            {
+                return j;
+            }
+        });
+        
+        res.json(joke);
+    }
+    else{
+        res.json(jokes);
+    }
     
 });
 
