@@ -55,6 +55,16 @@ const animalImages = [
   ];
 
   
+  server.get('/image/random', (req, res) => {
+    let idx = Math.floor(Math.random() * 50);
+    const image = animalImages.filter((img, index) => {
+      if(idx === index)
+      {
+        return img;
+      }
+    });
+    res.send(image);
+  });
   
 
 server.listen(5000, () => {
