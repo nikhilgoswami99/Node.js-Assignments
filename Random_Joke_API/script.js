@@ -59,13 +59,13 @@ const jokes = [
 
 server.get("/jokes", (req, res) => {
     
-    let id = req.query.id;
+    let idx = Math.floor(Math.random() * 50);
     
-    if(id)
+    if(req.query.joke === 'random')
     {
-        const joke = jokes.find((j) => {
+        const joke = jokes.find((j, index) => {
             
-            if(j.id === Number(id))
+            if(idx === index)
             {
                 return j;
             }

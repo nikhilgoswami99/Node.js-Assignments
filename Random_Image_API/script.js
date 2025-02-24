@@ -55,9 +55,9 @@ const animalImages = [
   ];
 
   
-  server.get('/image/random', (req, res) => {
+  server.get('/image', (req, res) => {
     let idx = Math.floor(Math.random() * 50);
-    const image = animalImages.filter((img, index) => {
+    const image = animalImages.find((img, index) => {
       if(idx === index)
       {
         return img;
