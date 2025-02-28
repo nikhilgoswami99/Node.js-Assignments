@@ -57,9 +57,11 @@ const jokes = [
 
   
 
-server.get("/jokes", (req, res) => {
+server.get("/jokes/:id", (req, res) => {
     
     let idx = Math.floor(Math.random() * 50);
+    let id = req.query.id;
+    let params = req.params.id;
     
     if(req.query.joke === 'random')
     {
@@ -73,7 +75,27 @@ server.get("/jokes", (req, res) => {
         
         res.json(joke);
     }
-    else{
+    else if(id)
+    {
+        const joke = jokes.find((j) => {
+            
+            if(j.id == id)
+            {
+                return j;
+            }
+        });
+        
+        res.json({
+            success: true,
+            data: joke
+        });
+    }
+    else if(params)
+    {
+        const joke = jokes.find((j) => j.id == params);
+        res.json(joke);
+    }
+    else if(!params){
         res.json(jokes);
     }
     
