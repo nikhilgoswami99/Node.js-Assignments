@@ -2,11 +2,16 @@ const express = require("express")
 
 const server = express();
 
-const apiKeyValidator = (req, res, next) => {
-    
+const requestLogger = (req, res, next) => {
+    const requestType = req.method;
+    const url = req.url;
+    const ip = req.ip;
+    const timeStamp = new Date().toISOString();
+    console.log(`Method :- ${requestType} \nURL :- ${url} \nIP Address :- ${ip} \ntimeStamp :- ${timeStamp}`);
+    next();
 }
 
-server.use(apiKeyValidator);
+server.use(requestLogger);
 
 server.get("/users", (req, res) => {
     res.json({
@@ -25,7 +30,7 @@ server.post("/login", (req, res) => {
 
 
 
-server.listen(5000, () => {
+server.listen(5000,127 ,() => {
     console.log("server is up and running on port 5000");
     
 });
